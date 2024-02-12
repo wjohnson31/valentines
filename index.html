@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes or No</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* Align items vertically */
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: #007BFF;
+
+            }
+
+            .container {
+                text-align: center; /* Center the text and buttons */
+            }
+
+            p {
+                font-size: 48px; /* Very large text size */
+                color: red; /* Red text color */
+                font-weight: bold; /* Make text bold */
+                margin: 20px 0; /* Add some space around the text */
+            }
+
+            button {
+                margin: 10px;
+                padding: 10px 20px;
+                font-size: 20px;
+                cursor: pointer;
+                position: relative; /* Adjusted for initial positioning */
+                background-color: rgba(255, 255, 255, 0.8); /* Optional: make buttons slightly transparent */
+                border: none; /* Optional: remove border */
+                border-radius: 5px; /* Optional: round button corners */
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Will you be my valentine?</p>
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
+    </div>
+    <script>
+        document.getElementById('noButton').addEventListener('mouseover', function() {
+        const noButton = this;
+        const maxX = window.innerWidth - noButton.offsetWidth;
+        const maxY = window.innerHeight - noButton.offsetHeight;
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noButton.style.position = 'absolute'; // Ensure this is absolute
+        noButton.style.left = randomX + window.scrollX + 'px';
+        noButton.style.top = randomY + window.scrollY + 'px';
+    });
+
+    document.getElementById('yesButton').addEventListener('click', function() {
+        document.body.innerHTML = `
+            <div style="text-align: center; color: red; font-size: 24px; width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <pre style="font-size: 16px; line-height: 1.2; margin: 0;">
+  xxxxxxx      xxxxxxx
+ xxxxxxxxx    xxxxxxxxx
+xxxxxxxxxxx  xxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxx
+ xxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxx
+ xxxxxxxxxxx
+  xxxxxxx
+  xxx
+  x
+                </pre>
+                <p style="margin-top: 20px;">I knew you would say yes</p>
+            </div>
+        `;
+    });
+    </script>
+</body>
+</html>
